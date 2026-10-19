@@ -390,6 +390,48 @@
     display: block;    /* Quita espacio debajo si es inline */
     margin: 0 auto 20px; /* Centra la imagen y da margen abajo */
 }
+/* Calificaciones de los doctores */
+.calificacion-doctor {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--borde);
+}
+
+.estrellas {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 6px 0;
+}
+
+.estrellas button {
+    background: transparent;
+    border: none;
+    padding: 2px;
+    color: #c5c5c5;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.estrellas button.seleccionada,
+.estrellas button:hover {
+    color: #e6a700;
+}
+
+.estrellas button:disabled {
+    cursor: default;
+}
+
+.resumen-calificacion {
+    color: var(--texto-secundario);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.mensaje-voto {
+    font-size: 12px;
+    margin-top: 5px;
+}
     </style>
 </head>
 <body>
@@ -506,7 +548,7 @@ De lunes a viernes
                     <div class="icono">
                         <img src="imagenes/elisseth.jfif" alt="Foto del tercer integrante del personal" />
                     </div>
-                    <h3>Dr. Elisseth Pichardo</h3>
+                    <h3>Dra. Elisseth Pichardo</h3>
                     <p>Esp: Cirugía</p>
                 </div>
                 <!-- PERSONA 4 -->
@@ -514,7 +556,7 @@ De lunes a viernes
                     <div class="icono">
                         <img src="imagenes/fanny.jfif" alt="Foto del cuarto integrante del personal" />
                     </div>
-                    <h3>Dr. Fanny Grullon</h3>
+                    <h3>Dra. Fanny Grullon</h3>
                     <p>Odontología General</p>
                 </div>
                 <!-- PERSONA 5 -->
@@ -522,7 +564,7 @@ De lunes a viernes
                     <div class="icono">
                         <img src="imagenes/solorin.jpg" alt="Sin foto de perfil" />
                     </div>
-                    <h3>Dr. Emely Solorin</h3>
+                    <h3>Dra. Emely Solorin</h3>
                     <p>Odontología General</p>
                 </div>
                 <!-- PERSONA 6 -->
@@ -530,7 +572,7 @@ De lunes a viernes
                     <div class="icono">
                         <img src="imagenes/dailanny.png" alt="Foto del sexto integrante del personal" />
                     </div>
-                    <h3>Dr. Dailanny nuñez</h3>
+                    <h3>Dra. Dailanny nuñez</h3>
                     <p>Odontología General (De licencia)</p>
                 </div>
                 <!-- PERSONA 7 -->
@@ -540,6 +582,14 @@ De lunes a viernes
                     </div>
                     <h3>Dr. Jean Martinez</h3>
                     <p>Ortodoncista</p>
+                </div>
+                 <!-- PERSONA 8 -->
+                  <div class="persona">
+                    <div class="icono">
+                        <img src="imagenes/saily.jpg" alt="Foto del séptimo integrante del personal" />
+                    </div>
+                    <h3>Dra. Saily Quezada</h3>
+                    <p>prótesis</p>
                 </div>
             </div>
         </section>
@@ -588,7 +638,7 @@ Estamos comprometidos con ofrecerte una atención de calidad y facilitar cada pa
 
                 <!-- TARJETA 3 -->
                 <div class="tarjeta-imagen">
-                    <img src="imagenes/protesis.jpg" alt="Descripción de la tercera imagen" />
+                    <img src="imagenes/endodoncia3.jpg" alt="Descripción de la tercera imagen" />
                     <h3>Endodoncia</h3>
                     <p>Salvamos tus dientes, aliviamos tu dolor.</p>
                     <button class="abrir-detalle-btn" onclick="abrirModal('modalEndodoncia')">Ver más</button>
@@ -731,5 +781,156 @@ Estamos comprometidos con ofrecerte una atención de calidad y facilitar cada pa
             document.getElementById(id).classList.remove('activa');
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+(() => {
+    const SUPABASE_URL = 'https://lpfwevvgrbgzqhopctqk.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_C79sdLnyp3R9Qm80xQ8nIA_g4FEkO6Q';
+
+    const db = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+    const tarjetas = document.querySelectorAll(
+        '#personal .cuadricula > .persona'
+    );
+
+    function obtenerIdDoctor(tarjeta) {
+        const nombre = tarjeta.querySelector('h3')?.textContent || '';
+
+        return nombre
+            .trim()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-|-$/g, '');
+    }
+
+    function mostrarMensaje(elemento, texto, error = false) {
+        elemento.textContent = texto;
+        elemento.style.color = error ? '#b42318' : 'var(--texto-secundario)';
+    }
+
+    async function iniciarCalificaciones() {
+        const { data: sesion } = await db.auth.getSession();
+
+        if (!sesion.session) {
+            const { error } = await db.auth.signInAnonymously();
+
+            if (error) {
+                console.error('Error al iniciar sesión:', error.message);
+                return;
+            }
+        }
+
+        const elementos = [];
+
+        tarjetas.forEach(tarjeta => {
+            const doctorId = obtenerIdDoctor(tarjeta);
+            const especialidad = tarjeta.querySelector('p');
+
+            if (!especialidad) return;
+
+            const panel = document.createElement('div');
+            panel.className = 'calificacion-doctor';
+
+            const resumen = document.createElement('div');
+            resumen.className = 'resumen-calificacion';
+            resumen.textContent = 'Cargando calificaciones...';
+
+            const estrellas = document.createElement('div');
+            estrellas.className = 'estrellas';
+            estrellas.setAttribute('aria-label', 'Califica al doctor');
+
+            const mensaje = document.createElement('div');
+            mensaje.className = 'mensaje-voto';
+            mensaje.setAttribute('aria-live', 'polite');
+
+            const botones = [];
+
+            for (let valor = 1; valor <= 5; valor++) {
+                const boton = document.createElement('button');
+                boton.type = 'button';
+                boton.textContent = '★';
+                boton.setAttribute('aria-label', `${valor} de 5 estrellas`);
+                boton.title = `${valor} de 5 estrellas`;
+
+                boton.addEventListener('click', async () => {
+                    botones.forEach(b => b.disabled = true);
+                    mostrarMensaje(mensaje, 'Guardando tu voto...');
+
+                    const { error } = await db.rpc('cast_doctor_vote', {
+                        p_doctor_id: doctorId,
+                        p_rating: valor
+                    });
+
+                    if (error) {
+                        mostrarMensaje(
+                            mensaje,
+                            error.message.includes('Ya has votado')
+                                ? 'Ya has votado por este doctor.'
+                                : 'No se pudo guardar el voto. Inténtalo de nuevo.',
+                            true
+                        );
+                        botones.forEach(b => b.disabled = false);
+                        return;
+                    }
+
+                    mostrarMensaje(mensaje, '¡Gracias por tu opinión!');
+                    await cargarResumenes();
+                    botones.forEach(b => b.disabled = true);
+                });
+
+                botones.push(boton);
+                estrellas.appendChild(boton);
+            }
+
+            panel.append(estrellas, resumen, mensaje);
+            especialidad.insertAdjacentElement('afterend', panel);
+
+            elementos.push({ doctorId, resumen, botones });
+        });
+
+        async function cargarResumenes() {
+            const { data, error } = await db.rpc(
+                'get_doctor_rating_summary'
+            );
+
+            if (error) {
+                console.error('Error al cargar calificaciones:', error.message);
+                elementos.forEach(item => {
+                    item.resumen.textContent =
+                        'No se pudieron cargar las calificaciones.';
+                });
+                return;
+            }
+
+            elementos.forEach(item => {
+                const resultado = data.find(
+                    fila => fila.doctor_id === item.doctorId
+                );
+
+                if (!resultado || Number(resultado.vote_count) === 0) {
+                    item.resumen.textContent =
+                        '¡Sé el primero en dar tu opinión!';
+                } else {
+                    item.resumen.textContent =
+                        `★ ${Number(resultado.average_rating).toFixed(1)} de 5 · ` +
+                        `${resultado.vote_count} voto(s)`;
+                }
+            });
+        }
+
+        await cargarResumenes();
+    }
+
+    iniciarCalificaciones().catch(error => {
+        console.error('Error al iniciar las calificaciones:', error);
+    });
+})();
+</script>
 </body>
 </html>
