@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dental Stetic</title>
-
     <style>
         /* ====== COLORES Y DISEÑO ====== */
         :root {
@@ -19,20 +18,16 @@
             --borde: #e1ead9;
             --verde-suave: #edf6e5;
             --csp: #1d3d00;
-
         }
-
         * {
             box-sizing: border-box;
         }
-
         body {
             margin: 0;
             font-family: Arial, sans-serif;
             background: var(--fondo);
             color: var(--texto);
         }
-
         /* ====== ENCABEZADO ====== */
         header {
             background: var(--panel);
@@ -42,7 +37,6 @@
             border-bottom: 3px solid var(--color);
             box-shadow: 0 3px 14px rgba(36, 58, 24, 0.06);
         }
-
         .encabezado-logo {
             width: 75px;
             height: 75px;
@@ -50,17 +44,14 @@
             display: block;
             margin: 0 auto 10px;
         }
-
         header h1 {
             margin: 0;
             font-size: 28px;
         }
-
         header p {
             color: var(--texto-secundario);
             margin-bottom: 0;
         }
-
         /* ====== PESTAÑAS DE NAVEGACIÓN ====== */
         nav {
             display: flex;
@@ -69,7 +60,6 @@
             padding: 20px;
             flex-wrap: wrap;
         }
-
         nav button {
             background: #ffffff;
             color: var(--color-oscuro);
@@ -82,21 +72,18 @@
             cursor: pointer;
             font-size: 15px;
         }
-
         nav button:hover,
         nav button.activo {
             background: var(--csp);
             border-color: var(--color);
             color: #ffffff;
         }
-
         /* ====== CONTENIDO PRINCIPAL ====== */
         main {
             width: 92%;
             max-width: 1100px;
             margin: 0 auto 40px;
         }
-
         .ventana {
             display: none;
             background: var(--panel);
@@ -108,11 +95,9 @@
             box-shadow: 0 8px 24px rgba(36, 58, 24, 0.06);
             animation: aparecer 0.25s ease;
         }
-
         .ventana.activa {
             display: block;
         }
-
         @keyframes aparecer {
             from {
                 opacity: 0;
@@ -123,13 +108,11 @@
                 transform: translateY(0);
             }
         }
-
         /* ====== TÍTULOS Y TEXTOS ====== */
         .ventana h2 {
             text-align: center;
             color: var(--color-oscuro);
         }
-
         .descripcion {
             color: var(--texto-secundario);
             font-size: 17px;
@@ -137,7 +120,6 @@
             text-align: center;
             white-space: pre-line;
         }
-
         .bloque-info {
             background: #f8fbf5;
             padding: 18px;
@@ -146,17 +128,14 @@
             border-left: 4px solid var(--color);
             border-radius: 10px;
         }
-
         .bloque-info h3 {
             margin-top: 0;
             color: var(--color-oscuro);
         }
-
         .bloque-info p {
             color: var(--texto-secundario);
             line-height: 1.7;
         }
-
         /* ====== CUADRÍCULA DE TARJETAS ====== */
         .cuadricula {
             display: grid;
@@ -164,7 +143,6 @@
             gap: 15px;
             margin-top: 25px;
         }
-
         .persona {
             background: var(--tarjeta);
             color: var(--texto);
@@ -176,16 +154,13 @@
             transition: 0.2s;
             min-width: 0;
         }
-
         .persona:hover {
             border-color: var(--color);
             transform: translateY(-4px);
         }
-
         .persona .icono {
             margin-bottom: 10px;
         }
-
         .persona .icono img {
             width: 100px;
             height: 100px;
@@ -194,20 +169,17 @@
             display: block;
             margin: 0 auto 10px;
         }
-
         .persona h3 {
             font-size: 16px;
             margin: 5px 0;
             overflow-wrap: anywhere;
         }
-
         .persona p {
             color: var(--texto-secundario);
             font-size: 13px;
             line-height: 1.6;
             margin-bottom: 0;
         }
-
         /* ====== TARJETAS GRANDES CON IMÁGENES CIRCULARES ====== */
         .tarjetas-imagenes {
             display: grid;
@@ -215,7 +187,6 @@
             gap: 24px;
             margin-top: 28px;
         }
-
         .tarjeta-imagen {
             background: var(--tarjeta);
             color: var(--texto);
@@ -225,13 +196,12 @@
             border: 1px solid var(--borde);
             box-shadow: 0 4px 14px rgba(36, 58, 24, 0.06);
             transition: 0.2s;
+            position: relative;
         }
-
         .tarjeta-imagen:hover {
             border-color: var(--color);
             transform: translateY(-4px);
         }
-
         .tarjeta-imagen img {
             width: 150px;
             height: 150px;
@@ -241,21 +211,18 @@
             display: block;
             margin: 0 auto 16px;
         }
-
         .tarjeta-imagen h3 {
             color: var(--color-oscuro);
             font-size: 18px;
             margin: 8px 0;
             overflow-wrap: anywhere;
         }
-
         .tarjeta-imagen p {
             color: var(--texto-secundario);
             font-size: 14px;
             line-height: 1.6;
             margin-bottom: 0;
         }
-
         /* ====== IMAGEN DE MÉTODOS DE PAGO ====== */
         .imagen-pagos {
             display: block;
@@ -266,7 +233,6 @@
             margin: 25px auto;
             border-radius: 12px;
         }
-
         /* ====== PIE DE PÁGINA ====== */
         footer {
             text-align: center;
@@ -274,109 +240,188 @@
             color: var(--texto-secundario);
             font-size: 13px;
         }
-
         /* ====== DISEÑO PARA CELULARES ====== */
         @media (max-width: 750px) {
             .cuadricula {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
             .tarjetas-imagenes {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
-
             .ventana {
                 padding: 20px;
             }
         }
-
         @media (max-width: 480px) {
             .tarjetas-imagenes {
                 grid-template-columns: 1fr;
             }
-
             .tarjeta-imagen img {
                 width: 170px;
                 height: 170px;
             }
         }
-
         @media (max-width: 380px) {
             .cuadricula {
                 grid-template-columns: 1fr;
             }
-
             nav button {
                 width: 100%;
             }
         }
+        .portada {
+            width: 100%;
+            overflow: hidden;
+        }
+        .portada img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-    
-.portada {
-    width: 100%;
-    overflow: hidden;
+        /* Estilos para las ventanas modales de servicios */
+        .modal-servicio {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(32, 37, 31, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .modal-servicio.activa {
+            display: flex;
+        }
+        .modal-contenido {
+            background: var(--panel);
+            border-radius: 16px;
+            padding: 30px 25px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 8px 24px rgba(36, 58, 24, 0.12);
+            position: relative;
+            color: var(--texto);
+        }
+        .modal-contenido h3 {
+            text-align: center;
+            margin-top: 0;
+            color: var(--color-oscuro);
+        }
+        .modal-contenido .cerrar-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: var(--color);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .modal-contenido .cerrar-btn:hover {
+            background: var(--color-oscuro);
+        }
+        /* Botón para abrir ventana en la tarjeta */
+        .abrir-detalle-btn {
+            margin-top: 16px;
+            background: var(--csp);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .abrir-detalle-btn:hover {
+            background: var(--color);
+        }
+
+        .ortodoncia_info img {
+    width: 100%;       /* Escala la imagen al ancho completo del contenedor */
+    height: auto;      /* Mantiene la proporción original */
+    max-width: 100%;   /* No exceder el ancho del contenedor */
+    border-radius: 12px; /* Opcional: bordes redondeados para que combine con el diseño */
+    display: block;    /* Quita espacio debajo si es inline */
+    margin: 0 auto 20px; /* Centra la imagen y da margen abajo */
 }
-
-.portada img {
-    width: 100%;
-    height: auto;
-    display: block;
+        .implantes_info img {
+    width: 100%;       /* Escala la imagen al ancho completo del contenedor */
+    height: auto;      /* Mantiene la proporción original */
+    max-width: 100%;   /* No exceder el ancho del contenedor */
+    border-radius: 12px; /* Opcional: bordes redondeados para que combine con el diseño */
+    display: block;    /* Quita espacio debajo si es inline */
+    margin: 0 auto 20px; /* Centra la imagen y da margen abajo */
 }
-
-        
+        .protesis_info img {
+    width: 100%;       /* Escala la imagen al ancho completo del contenedor */
+    height: auto;      /* Mantiene la proporción original */
+    max-width: 100%;   /* No exceder el ancho del contenedor */
+    border-radius: 12px; /* Opcional: bordes redondeados para que combine con el diseño */
+    display: block;    /* Quita espacio debajo si es inline */
+    margin: 0 auto 20px; /* Centra la imagen y da margen abajo */
+}
+        .endodencia_info img {
+    width: 100%;       /* Escala la imagen al ancho completo del contenedor */
+    height: auto;      /* Mantiene la proporción original */
+    max-width: 100%;   /* No exceder el ancho del contenedor */
+    border-radius: 12px; /* Opcional: bordes redondeados para que combine con el diseño */
+    display: block;    /* Quita espacio debajo si es inline */
+    margin: 0 auto 20px; /* Centra la imagen y da margen abajo */
+}
+        .rehabilitacion_info img {
+    width: 100%;       /* Escala la imagen al ancho completo del contenedor */
+    height: auto;      /* Mantiene la proporción original */
+    max-width: 100%;   /* No exceder el ancho del contenedor */
+    border-radius: 12px; /* Opcional: bordes redondeados para que combine con el diseño */
+    display: block;    /* Quita espacio debajo si es inline */
+    margin: 0 auto 20px; /* Centra la imagen y da margen abajo */
+}
+        .estetica_info img {
+    width: 100%;       /* Escala la imagen al ancho completo del contenedor */
+    height: auto;      /* Mantiene la proporción original */
+    max-width: 100%;   /* No exceder el ancho del contenedor */
+    border-radius: 12px; /* Opcional: bordes redondeados para que combine con el diseño */
+    display: block;    /* Quita espacio debajo si es inline */
+    margin: 0 auto 20px; /* Centra la imagen y da margen abajo */
+}
     </style>
 </head>
-
 <body>
-
     <!-- ====== ENCABEZADO DE LA PÁGINA ====== -->
     <header>
-    <div class="persona">
-    <div class="icono">
-        <img src="imagenes/logo2.png" alt="Foto logo dental stetic">
-    </div>
-    <h3>Dental Stetic</h3>
-    <p>Tu sonrisa es nuestra prioridad</p>
-</div>
-</header>
-               
-         <div class="portada">
-    <img src="imagenes/portada.jpeg" alt="Clínica Dental Stetic">
-</div>
+        <div class="persona">
+            <div class="icono">
+                <img src="imagenes/logo2.png" alt="Foto logo dental stetic" />
+            </div>
+            <h3>Dental Stetic</h3>
+            <p>Tu sonrisa es nuestra prioridad</p>
+        </div>
+    </header>
 
+    <div class="portada">
+        <img src="imagenes/portada.png" alt="Clínica Dental Stetic" />
+    </div>
 
     <!-- ====== BOTONES PARA CAMBIAR DE PESTAÑA ====== -->
     <nav>
-
-        <!-- PESTAÑA ADICIONAL CON TARJETAS DE IMÁGENES -->
-        <button class="activo" onclick="mostrarVentana('adicional', this)">
-            Servicios
-        </button>
-
-        <button onclick="mostrarVentana('personal', this)">
-            Personal
-        </button>
-
-        <button  onclick="mostrarVentana('pagos', this)">
-            Métodos de pago
-        </button>
-
-         <button onclick="mostrarVentana('informacion', this)">
-            Información
-        </button>
-
-        
+        <button class="activo" onclick="mostrarVentana('adicional', this)">Servicios</button>
+        <button onclick="mostrarVentana('personal', this)">Personal</button>
+        <button onclick="mostrarVentana('pagos', this)">Métodos de pago</button>
+        <button onclick="mostrarVentana('informacion', this)">Información</button>
     </nav>
 
     <main>
-
         <!-- =====================================
              VENTANA 1: INFORMACIÓN
         ====================================== -->
         <section id="informacion" class="ventana">
-
             <h2>Información principal</h2>
-
             <p class="descripcion">Centro Dental Stetic
 Centro Odontológico
 Juan López / Moca
@@ -391,7 +436,10 @@ De lunes a viernes
             <div class="bloque-info">
                 <h3>¡Contáctanos!</h3>
                 <p>
-                    Gmail: dentalstetic365@gmail.com <br> Tel/fijo: 809-578-4248 <br> whatsApp: 849-214-1147 <br> Instagram: Centro Dental Stetic
+                    Gmail: dentalstetic365@gmail.com <br />
+                    Tel/fijo: 809-578-4248 <br />
+                    whatsApp: 849-214-1147 <br />
+                    Instagram: Centro Dental Stetic
                 </p>
             </div>
 
@@ -399,140 +447,115 @@ De lunes a viernes
                 <h3>MISIÓN</h3>
                 <p>
                    Ofrecer Servicios Odontologicos Integrales Con Personal Capacitado Apegados A Los Altos Estandares De Calidad, Respaldo Con Tecnologia Avanzada, Para Asi Realizar Servicios De Manera Eficiente.
-
                 </p>
             </div>
 
-                        <div class="bloque-info">
+            <div class="bloque-info">
                 <h3>VISION</h3>
                 <p>
                     Ser Lider En El Mercado De La Salud Buco-Dental Para Brindar La Mejor Alternativa Con Calidad Y Credibilidad.
                 </p>
             </div>
 
-                        <div class="bloque-info">
+            <div class="bloque-info">
                 <h3>VALORES</h3>
                 <p>
-                   Responsavilidad <br> Dedicacion <br> Confiabilidad <br> Honestidad <br> Respeto <br> Trabajo En Equipo
+                   Responsavilidad <br /> Dedicacion <br /> Confiabilidad <br /> Honestidad <br /> Respeto <br /> Trabajo En Equipo
                 </p>
             </div>
-<div class="servicios-contenedor">
-    <h2>SERVICIOS OFRECIDOS:</h2>
-    <ul class="lista-servicios">
-        <li>Implante Dental</li>
-        <li>Ortodoncia</li>
-        <li>Prótesis Fija Y Removible</li>
-        <li>Endodoncia</li>
-        <li>Rehabilitación Oral</li>
-        <li>Estética</li>
-    </ul>
-
-    
-</div>
-            
-
+            <div class="servicios-contenedor">
+                <h2>SERVICIOS OFRECIDOS:</h2>
+                <ul class="lista-servicios">
+                    <li>Implante Dental</li>
+                    <li>Ortodoncia</li>
+                    <li>Prótesis Fija Y Removible</li>
+                    <li>Endodoncia</li>
+                    <li>Rehabilitación Oral</li>
+                    <li>Estética</li>
+                    <li>Panorámicas dentales</li>
+                    <li>Limpieza y Blanqueamento</li>
+                </ul>
+            </div>
         </section>
 
         <!-- =====================================
              VENTANA 2: PERSONAL
         ====================================== -->
         <section id="personal" class="ventana">
-
             <h2>Lista de personal</h2>
-
-            <p class="descripcion">
-                Nuestro personal especializado.
-            </p>
-
+            <p class="descripcion">Nuestro personal especializado.</p>
             <div class="cuadricula">
-
                 <!-- PERSONA 1 -->
                 <div class="persona">
                     <div class="icono">
-                        <img src="imagenes/mahogany.jpeg" alt="Foto de Juan Pérez">
+                        <img src="imagenes/mahogany.jpeg" alt="Foto de Juan Pérez" />
                     </div>
                     <h3>Dr. Mahogany García</h3>
-                    <p>Esp: Implantes
-                    </p>
+                    <p>Esp: Implantes</p>
                 </div>
-
                 <!-- PERSONA 2 -->
                 <div class="persona">
                     <div class="icono">
-                        <img src="imagenes/xabriel.jfif" alt="Foto del segundo integrante del personal">
+                        <img src="imagenes/xabriel.jfif" alt="Foto del segundo integrante del personal" />
                     </div>
                     <h3>Dr. Xabriel Bencosme</h3>
                     <p>Esp: Endodencia/Tratamiento de canal</p>
                 </div>
-
                 <!-- PERSONA 3 -->
                 <div class="persona">
                     <div class="icono">
-                        <img src="imagenes/elisseth.jfif" alt="Foto del tercer integrante del personal">
+                        <img src="imagenes/elisseth.jfif" alt="Foto del tercer integrante del personal" />
                     </div>
                     <h3>Dr. Elisseth Pichardo</h3>
                     <p>Esp: Cirugía</p>
                 </div>
-
                 <!-- PERSONA 4 -->
                 <div class="persona">
                     <div class="icono">
-                        <img src="imagenes/fanny.jfif" alt="Foto del cuarto integrante del personal">
+                        <img src="imagenes/fanny.jfif" alt="Foto del cuarto integrante del personal" />
                     </div>
                     <h3>Dr. Fanny Grullon</h3>
                     <p>Odontología General</p>
                 </div>
-
                 <!-- PERSONA 5 -->
                 <div class="persona">
                     <div class="icono">
-                        <img src="imagenes/sinfoto.webp" alt="Sin foto de perfil">
+                        <img src="imagenes/solorin.jpeg" alt="Sin foto de perfil" />
                     </div>
                     <h3>Dr. Emely Solorin</h3>
                     <p>Odontología General</p>
                 </div>
-
                 <!-- PERSONA 6 -->
                 <div class="persona">
                     <div class="icono">
-                        <img src="imagenes/dailanny.png" alt="Foto del sexto integrante del personal">
+                        <img src="imagenes/dailanny.png" alt="Foto del sexto integrante del personal" />
                     </div>
                     <h3>Dr. Dailanny nuñez</h3>
-                    <p>Odontología General (De licencia) </p>
+                    <p>Odontología General (De licencia)</p>
                 </div>
-
                 <!-- PERSONA 7 -->
                 <div class="persona">
                     <div class="icono">
-                        <img src="imagenes/sinfoto.webp" alt="Foto del séptimo integrante del personal">
+                        <img src="imagenes/jean_martinez.jpeg" alt="Foto del séptimo integrante del personal" />
                     </div>
                     <h3>Dr. Jean Martinez</h3>
                     <p>Ortodoncista</p>
                 </div>
-
             </div>
         </section>
 
         <!-- =====================================
              VENTANA 3: MÉTODOS DE PAGO
-             EDITA EL TEXTO EN EL PÁRRAFO
-             Y CAMBIA LA IMAGEN EN src
         ====================================== -->
         <section id="pagos" class="ventana">
-
             <h2>Métodos de pago</h2>
-
-            <!-- La imagen debe estar en la carpeta imagenes -->
             <img
                 class="imagen-pagos"
                 src="imagenes/pagos.jfif"
                 alt="Métodos de pago aceptados por Dental Stetic"
-            >
-
-            <!-- EDITA ESTE TEXTO CON TU INFORMACIÓN -->
+            />
             <div class="bloque-info">
                 <h3>Información sobre los métodos de pago</h3>
-
                 <p>
                     Escribe aquí la información sobre los métodos de pago
                     disponibles en la clínica. Puedes indicar si aceptan
@@ -540,96 +563,174 @@ De lunes a viernes
                     formas de pago.
                 </p>
             </div>
-
         </section>
 
         <!-- =====================================
              VENTANA 4: NUEVA PESTAÑA CON TARJETAS
-             CAMBIA EL NOMBRE, LAS IMÁGENES Y LOS TÍTULOS
         ====================================== -->
         <section id="adicional" class="ventana activa">
-
-            
-
-          
             <div class="tarjetas-imagenes">
 
-                <!-- TARJETA 1: CAMBIA imagen1.jpg, EL TÍTULO Y EL TEXTO -->
+                <!-- TARJETA 1 -->
                 <div class="tarjeta-imagen">
-                    <img src="imagenes/ortodoncia4.webp" alt="Descripción de la primera imagen">
+                    <img src="imagenes/ortodoncia4.webp" alt="Descripción de la primera imagen" />
                     <h3>Ortodoncia</h3>
                     <p>Escribe aquí una descripción opcional.</p>
+                    <button class="abrir-detalle-btn" onclick="abrirModal('modalOrtodoncia')">Ver más</button>
                 </div>
 
                 <!-- TARJETA 2 -->
                 <div class="tarjeta-imagen">
-                    <img src="imagenes/implantes.webp" alt="Descripción de la segunda imagen">
+                    <img src="imagenes/implantes.webp" alt="Descripción de la segunda imagen" />
                     <h3>Implante Dental</h3>
                     <p>Escribe aquí una descripción opcional.</p>
+                    <button class="abrir-detalle-btn" onclick="abrirModal('modalImplante')">Ver más</button>
                 </div>
 
                 <!-- TARJETA 3 -->
                 <div class="tarjeta-imagen">
-                    <img src="imagenes/endodoncia2.jpg" alt="Descripción de la tercera imagen">
+                    <img src="imagenes/protesis.jpg" alt="Descripción de la tercera imagen" />
                     <h3>Endodoncia</h3>
                     <p>Escribe aquí una descripción opcional.</p>
+                    <button class="abrir-detalle-btn" onclick="abrirModal('modalEndodoncia')">Ver más</button>
                 </div>
 
-                 <div class="tarjeta-imagen">
-                    <img src="imagenes/protesis.jpg" alt="Descripción de la tercera imagen">
+                <!-- TARJETA 4 -->
+                <div class="tarjeta-imagen">
+                    <img src="imagenes/estetica.webp" alt="Descripción de la cuarta imagen" />
                     <h3>Prótesis</h3>
                     <p>Escribe aquí una descripción opcional.</p>
+                    <button class="abrir-detalle-btn" onclick="abrirModal('modalProtesis')">Ver más</button>
                 </div>
 
-                 <div class="tarjeta-imagen">
-                    <img src="imagenes/estetica.webp" alt="Descripción de la tercera imagen">
+                <!-- TARJETA 5 -->
+                <div class="tarjeta-imagen">
+                    <img src="imagenes/rehabilitacion.jpg" alt="Descripción de la quinta imagen" />
                     <h3>Estética</h3>
                     <p>Escribe aquí una descripción opcional.</p>
+                    <button class="abrir-detalle-btn" onclick="abrirModal('modalEstetica')">Ver más</button>
                 </div>
 
-                 <div class="tarjeta-imagen">
-                    <img src="imagenes/rehabilitacion.jpg" alt="Descripción de la tercera imagen">
+                <!-- TARJETA 6 -->
+                <div class="tarjeta-imagen">
+                    <img src="imagenes/imagen6.jpg" alt="Descripción de la sexta imagen" />
                     <h3>Rehabilitación</h3>
                     <p>Escribe aquí una descripción opcional.</p>
+                    <button class="abrir-detalle-btn" onclick="abrirModal('modalRehabilitacion')">Ver más</button>
                 </div>
-
             </div>
-
-            
         </section>
-        <ul><a href="https://www.instagram.com/centrodental_stetic/" target="_blank">Síguenos en Instagram</a>
-</div></ul>
 
+        <ul><a href="https://www.instagram.com/centrodental_stetic/" target="_blank">Síguenos en Instagram</a></ul>
     </main>
 
     <footer>
         © 2026 Dental Stetic Odontología | Odontología avanzada
     </footer>
 
+    <!-- VENTANAS MODALES DE SERVICIOS -->
+<div id="modalOrtodoncia" class="modal-servicio" onclick="cerrarModal('modalOrtodoncia')">
+  <div class="modal-contenido" onclick="event.stopPropagation()">
+    <h3>Ortodoncia</h3>
+    <button class="cerrar-btn" onclick="cerrarModal('modalOrtodoncia')">Salir</button>
+    <div class="ortodoncia_info">
+      <img src="imagenes/ortodoncia_info.jpeg" alt="Clínica Dental Stetic" />
+    </div>
+    <p>
+      Nuestros ortodoncistas están comprometidos en corregir la posición de tus dientes y mandíbula para que luzcas una sonrisa equilibrada y saludable...
+    </p>
+  </div>
+</div>
+
+  <div id="modalImplante" class="modal-servicio" onclick="cerrarModal('modalImplante')">
+  <div class="modal-contenido" onclick="event.stopPropagation()">
+    <h3>Implante Dental</h3>
+    <button class="cerrar-btn" onclick="cerrarModal('modalImplante')">Salir</button>
+    <div class="implantes_info">
+      <img src="imagenes/implantes_info.jpeg" alt="Clínica Dental Stetic" />
+    </div>
+    <p>
+      En nuestra clínica, nuestros especialistas en implantología dental te ofrecen la solución ideal para reemplazar dientes perdidos con seguridad y eficacia. Colocamos implantes de titanio que se integran perfectamente con tu hueso, brindándote una base fuerte para dientes nuevos que lucen y funcionan como los naturales. Nos preocupamos por restaurar tu sonrisa, así como tu salud y comodidad oral.
+    </p>
+  </div>
+</div>
+
+<div id="modalEndodoncia" class="modal-servicio" onclick="cerrarModal('modalEndodoncia')">
+  <div class="modal-contenido" onclick="event.stopPropagation()">
+    <h3>Endodoncia</h3>
+    <button class="cerrar-btn" onclick="cerrarModal('modalEndodoncia')">Salir</button>
+    <div class="endodencia_info">
+      <img src="imagenes/endodencia_info.jpeg" alt="Clínica Dental Stetic" />
+    </div>
+    <p>
+      Nuestros endodoncistas están dedicados a salvar tus dientes dañados mediante tratamientos precisos y delicados. Realizamos limpiezas y desinfecciones internas para eliminar infecciones y aliviar el dolor, manteniendo la funcionalidad de tus dientes naturales. Confiamos en prolongar la vida útil de tu dentadura y cuidar tu salud oral integral.
+    </p>
+  </div>
+</div>
+
+<div id="modalProtesis" class="modal-servicio" onclick="cerrarModal('modalProtesis')">
+  <div class="modal-contenido" onclick="event.stopPropagation()">
+    <h3>Prótesis</h3>
+    <button class="cerrar-btn" onclick="cerrarModal('modalProtesis')">Salir</button>
+    <div class="protesis_info">
+      <img src="imagenes/protesis_info.jpeg" alt="Clínica Dental Stetic" />
+    </div>
+    <p>
+      Nuestro equipo experto en prótesis dentales diseña y adapta soluciones hechas a medida para reemplazar dientes faltantes, devolviéndote la capacidad de masticar y sonreír sin preocupaciones. Ofrecemos opciones fijas y removibles con materiales cómodos y duraderos, asegurándonos de que cada prótesis se ajuste perfectamente a tus necesidades para que recuperes la confianza y funcionalidad perdidas.
+    </p>
+  </div>
+</div>
+
+<div id="modalEstetica" class="modal-servicio" onclick="cerrarModal('modalEstetica')">
+  <div class="modal-contenido" onclick="event.stopPropagation()">
+    <h3>Estética</h3>
+    <button class="cerrar-btn" onclick="cerrarModal('modalEstetica')">Salir</button>
+    <div class="estetica_info">
+      <img src="imagenes/estetica_info.jpeg" alt="Clínica Dental Stetic" />
+    </div>
+    <p>
+      Nuestros especialistas en estética dental emplean procedimientos modernos para realzar la belleza natural de tu sonrisa. Desde blanqueamientos hasta carillas y remodelaciones, utilizamos productos de alta calidad y técnicas seguras para que luzcas una sonrisa radiante y sana. Estamos aquí para ayudarte a reflejar tu mejor versión a través de una sonrisa que te haga sentir orgulloso.
+    </p>
+  </div>
+</div>
+
+<div id="modalRehabilitacion" class="modal-servicio" onclick="cerrarModal('modalRehabilitacion')">
+  <div class="modal-contenido" onclick="event.stopPropagation()">
+    <h3>Rehabilitación</h3>
+    <button class="cerrar-btn" onclick="cerrarModal('modalRehabilitacion')">Salir</button>
+    <div class="rehabilitacion_info">
+      <img src="imagenes/rehabilitacion_info.jpeg" alt="Clínica Dental Stetic" />
+    </div>
+    <p>
+      Nuestro equipo multidisciplinario se encarga de diseñar planes completos de rehabilitación bucal para restaurar la salud y función de toda tu boca. Integramos tratamientos de prótesis, implantes, ajustes de mordida y cuidados periodontales para que puedas masticar, hablar y sonreír con total confianza. Nos dedicamos a mejorar tu calidad de vida mediante una atención integral y personalizada.
+    </p>
+  </div>
+</div>
+
     <!-- ====== FUNCIONAMIENTO DE LAS PESTAÑAS ====== -->
     <script>
         function mostrarVentana(id, boton) {
-
             // Ocultar todas las ventanas
-            document.querySelectorAll('.ventana')
-                .forEach(function(ventana) {
-                    ventana.classList.remove('activa');
-                });
-
+            document.querySelectorAll('.ventana').forEach(function (ventana) {
+                ventana.classList.remove('activa');
+            });
             // Quitar el estado activo de todos los botones
-            document.querySelectorAll('nav button')
-                .forEach(function(b) {
-                    b.classList.remove('activo');
-                });
-
+            document.querySelectorAll('nav button').forEach(function (b) {
+                b.classList.remove('activo');
+            });
             // Mostrar la ventana elegida
-            document.getElementById(id)
-                .classList.add('activa');
-
+            document.getElementById(id).classList.add('activa');
             // Resaltar el botón seleccionado
             boton.classList.add('activo');
         }
+        // Abrir modal servicio
+        function abrirModal(id) {
+            document.getElementById(id).classList.add('activa');
+        }
+        // Cerrar modal servicio
+        function cerrarModal(id) {
+            document.getElementById(id).classList.remove('activa');
+        }
     </script>
-
 </body>
 </html>
