@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dental Stetic</title> 
-    <link rel="icon" href="/pag_dental_stetic/imagenes/Logo_pag.png" type="image/png">
+    <link rel="icon" type="image/png" sizes="512x512" href="imagenes/logo_pag.png">
 
     <style>
         /* ====== COLORES Y DISEÑO ====== */
@@ -447,6 +447,160 @@
     /* Mantén los demás estilos que ya tienes */
 }
 
+
+/* ===== COMENTARIOS Y RECOMENDACIONES ===== */
+
+.seccion-comentarios {
+    margin-top: 35px;
+    padding: 24px;
+    border: 1px solid var(--borde);
+    border-radius: 14px;
+    background: #f8fbf5;
+}
+
+.seccion-comentarios h2,
+.lista-comentarios h3 {
+    color: var(--color-oscuro);
+    text-align: center;
+}
+
+.formulario-comentario,
+.lista-comentarios {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 20px;
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    background: var(--panel);
+}
+
+.formulario-comentario label,
+#formularioRecomendaciones label {
+    display: block;
+    margin: 14px 0 7px;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.formulario-comentario input[type="text"],
+.formulario-comentario select,
+.formulario-comentario textarea,
+#formularioRecomendaciones input[type="text"],
+#formularioRecomendaciones textarea {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--borde);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--texto);
+    font: inherit;
+}
+
+.formulario-comentario textarea,
+#formularioRecomendaciones textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.opcion-anonima {
+    display: flex !important;
+    align-items: center;
+    gap: 9px;
+    font-weight: normal !important;
+    cursor: pointer;
+}
+
+.opcion-anonima input {
+    accent-color: var(--color);
+    width: 17px;
+    height: 17px;
+}
+
+.boton-verde {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    padding: 12px 18px;
+    background: var(--csp);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.boton-verde:hover {
+    background: var(--color);
+}
+
+.boton-verde:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.mensaje-formulario {
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.texto-recomendaciones {
+    display: block;
+    text-align: center;
+    color: var(--texto-secundario);
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+.recomendaciones-clinica #formularioRecomendaciones {
+    margin-top: 20px;
+    padding-top: 18px;
+    border-top: 1px solid var(--borde);
+}
+
+.comentario-publicado {
+    padding: 15px 0;
+    border-bottom: 1px solid var(--borde);
+    overflow-wrap: anywhere;
+}
+
+.comentario-publicado:last-child {
+    border-bottom: none;
+}
+
+.comentario-publicado strong {
+    color: var(--color-oscuro);
+}
+
+.comentario-publicado time {
+    display: block;
+    margin-top: 5px;
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+.comentario-publicado p {
+    line-height: 1.6;
+    white-space: pre-wrap;
+    margin-bottom: 0;
+}
+
+@media (max-width: 480px) {
+    .seccion-comentarios {
+        padding: 12px;
+    }
+
+    .formulario-comentario,
+    .lista-comentarios {
+        padding: 14px;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -540,6 +694,74 @@ De lunes a viernes
                     <li>Limpieza y Blanqueamento</li>
                 </ul>
             </div>
+
+            
+<!-- =========================================
+     RECOMENDACIONES PARA LA CLINICA
+========================================= -->
+
+<div class="bloque-info recomendaciones-clinica">
+    <h3>¡Recomendaciones!</h3>
+
+    <p>Tu opinión nos ayuda a seguir mejorando.</p>
+
+    <button
+        type="button"
+        id="abrirRecomendaciones"
+        class="boton-verde"
+        aria-expanded="false"
+        aria-controls="formularioRecomendaciones"
+    >
+        ¡Recomendaciones!
+    </button>
+
+    <small class="texto-recomendaciones">Danos tu opinión</small>
+
+    <div id="formularioRecomendaciones" hidden>
+        <h3>Queremos escucharte</h3>
+
+        <p>
+            Escribe alguna sugerencia que te gustaría para nuestra clínica.
+            Cada opinión nos ayuda a ofrecerte una mejor atención.
+        </p>
+
+        <label for="nombreRecomendacion">Tu nombre:</label>
+
+        <input
+            type="text"
+            id="nombreRecomendacion"
+            maxlength="60"
+            placeholder="Escribe tu nombre"
+            autocomplete="nickname"
+        />
+
+        <label class="opcion-anonima">
+            <input type="checkbox" id="recomendacionAnonima" />
+            Enviar recomendación de forma anónima
+        </label>
+
+        <label for="textoRecomendacion">Tu sugerencia:</label>
+
+        <textarea
+            id="textoRecomendacion"
+            maxlength="1500"
+            rows="5"
+            placeholder="¿Qué te gustaría que mejoráramos o agregáramos a nuestra clínica?"
+        ></textarea>
+
+        <button
+            type="button"
+            id="enviarRecomendacion"
+            class="boton-verde"
+        >
+            Enviar recomendación
+        </button>
+
+        <p id="estadoRecomendacion" class="mensaje-formulario"
+           aria-live="polite"></p>
+    </div>
+</div>
+
         </section>
 
         <!-- =====================================
@@ -618,6 +840,87 @@ De lunes a viernes
                     <p>prótesis</p>
                 </div>
             </div>
+
+            
+<!-- =========================================
+     SECCION DE COMENTARIOS DEL PERSONAL
+========================================= -->
+
+<div class="seccion-comentarios">
+    <h2>Opiniones sobre nuestro personal</h2>
+
+    <p class="descripcion">
+        Comparte tu experiencia y ayúdanos a mejorar.
+    </p>
+
+    <div class="formulario-comentario">
+        <label for="doctorComentario">Selecciona al doctor:</label>
+
+        <select id="doctorComentario">
+            <option value="dr-mahogany-garcia">Dr. Mahogany García</option>
+            <option value="dr-xabriel-bencosme">Dr. Xabriel Bencosme</option>
+            <option value="dra-elisseth-pichardo">Dra. Elisseth Pichardo</option>
+            <option value="dra-fanny-grullon">Dra. Fanny Grullon</option>
+            <option value="dra-emely-solorin">Dra. Emely Solorin</option>
+            <option value="dra-dailanny-nunez">Dra. Dailanny Nuñez</option>
+            <option value="dr-jean-martinez">Dr. Jean Martinez</option>
+            <option value="dra-saily-quezada">Dra. Saily Quezada</option>
+        </select>
+
+        <label for="nombreComentario">Tu nombre:</label>
+
+        <input
+            type="text"
+            id="nombreComentario"
+            maxlength="60"
+            placeholder="Escribe tu nombre"
+            autocomplete="nickname"
+        />
+
+        <label class="opcion-anonima">
+            <input type="checkbox" id="comentarioAnonimo" />
+            Publicar comentario de forma anónima
+        </label>
+
+        <label for="textoComentario">Tu comentario:</label>
+
+        <textarea
+            id="textoComentario"
+            maxlength="1000"
+            rows="4"
+            placeholder="Cuéntanos tu experiencia con este doctor..."
+        ></textarea>
+
+        <button type="button" id="enviarComentario" class="boton-verde">
+            Publicar comentario
+        </button>
+
+        <p id="estadoComentario" class="mensaje-formulario"
+           aria-live="polite"></p>
+    </div>
+
+    <div class="lista-comentarios">
+        <h3>Comentarios de los pacientes</h3>
+
+        <label for="filtrarDoctor">Ver opiniones de:</label>
+
+        <select id="filtrarDoctor">
+            <option value="dr-mahogany-garcia">Dr. Mahogany García</option>
+            <option value="dr-xabriel-bencosme">Dr. Xabriel Bencosme</option>
+            <option value="dra-elisseth-pichardo">Dra. Elisseth Pichardo</option>
+            <option value="dra-fanny-grullon">Dra. Fanny Grullon</option>
+            <option value="dra-emely-solorin">Dra. Emely Solorin</option>
+            <option value="dra-dailanny-nunez">Dra. Dailanny Nuñez</option>
+            <option value="dr-jean-martinez">Dr. Jean Martinez</option>
+            <option value="dra-saily-quezada">Dra. Saily Quezada</option>
+        </select>
+
+        <div id="listaComentariosPublicados" aria-live="polite">
+            <p class="descripcion">Cargando comentarios...</p>
+        </div>
+    </div>
+</div>
+
         </section>
 
         <!-- =====================================
@@ -975,6 +1278,374 @@ Estamos comprometidos con ofrecerte una atención de calidad y facilitar cada pa
     iniciarCalificaciones().catch(error => {
         console.error('Error al iniciar las calificaciones:', error);
     });
+})();
+</script>
+
+
+<script>
+(() => {
+    const SUPABASE_URL = 'https://lpfwevvgrbgzqhopctqk.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY =
+        'sb_publishable_C79sdLnyp3R9Qm80xQ8nIA_g4FEkO6Q';
+
+    const db = window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+    // Obtener el nombre y el identificador de cada integrante
+function obtenerDatosDoctores() {
+    const tarjetas = document.querySelectorAll(
+        '#personal .cuadricula > .persona'
+    );
+
+    return Array.from(tarjetas)
+        .map(tarjeta => {
+            const encabezado = tarjeta.querySelector('h3');
+
+            if (!encabezado) return null;
+
+            const nombre = encabezado.textContent.trim();
+
+            const id = nombre
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '');
+
+            return { id, nombre };
+        })
+        .filter(Boolean);
+}
+
+// Llenar automáticamente los dos menús de doctores
+function actualizarSelectoresDoctores() {
+    const doctores = obtenerDatosDoctores();
+
+    const selectores = [
+        document.getElementById('doctorComentario'),
+        document.getElementById('filtrarDoctor')
+    ];
+
+    selectores.forEach(selector => {
+        if (!selector) return;
+
+        const seleccionAnterior = selector.value;
+
+        selector.replaceChildren();
+
+        doctores.forEach(doctor => {
+            const opcion = document.createElement('option');
+
+            opcion.value = doctor.id;
+            opcion.textContent = doctor.nombre;
+
+            selector.appendChild(opcion);
+        });
+
+        if (doctores.some(d => d.id === seleccionAnterior)) {
+            selector.value = seleccionAnterior;
+        }
+    });
+}
+
+// Ejecutar al cargar la página
+actualizarSelectoresDoctores();
+
+    const NOMBRE_GUARDADO = 'dental_stetic_nombre_visitante';
+
+    const porId = id => document.getElementById(id);
+
+    const nombreComentario = porId('nombreComentario');
+    const nombreRecomendacion = porId('nombreRecomendacion');
+    const anonimoComentario = porId('comentarioAnonimo');
+    const anonimoRecomendacion = porId('recomendacionAnonima');
+
+    let usuarioListo = false;
+
+    // Recordar el nombre en el navegador.
+    function cargarNombreGuardado() {
+        const nombre = localStorage.getItem(NOMBRE_GUARDADO) || '';
+
+        nombreComentario.value = nombre;
+        nombreRecomendacion.value = nombre;
+    }
+
+    function guardarNombre(nombre) {
+        const limpio = nombre.trim();
+
+        if (limpio) {
+            localStorage.setItem(NOMBRE_GUARDADO, limpio);
+        }
+    }
+
+    nombreComentario.addEventListener('input', () => {
+        nombreRecomendacion.value = nombreComentario.value;
+    });
+
+    nombreRecomendacion.addEventListener('input', () => {
+        nombreComentario.value = nombreRecomendacion.value;
+    });
+
+    cargarNombreGuardado();
+
+    // Crear o recuperar la sesión anónima de Supabase.
+    async function prepararSesion() {
+        const { data, error } = await db.auth.getSession();
+
+        if (error) throw error;
+
+        if (!data.session) {
+            const resultado = await db.auth.signInAnonymously();
+
+            if (resultado.error) throw resultado.error;
+        }
+
+        usuarioListo = true;
+    }
+
+    function mostrarEstado(id, texto, error = false) {
+        const elemento = porId(id);
+        elemento.textContent = texto;
+        elemento.style.color = error ? '#b42318' : 'var(--color-oscuro)';
+    }
+
+    // Mostrar los comentarios de un doctor.
+    async function cargarComentarios() {
+        const doctorId = porId('filtrarDoctor').value;
+        const contenedor = porId('listaComentariosPublicados');
+
+        contenedor.replaceChildren();
+
+        const cargando = document.createElement('p');
+        cargando.textContent = 'Cargando comentarios...';
+        contenedor.appendChild(cargando);
+
+        const { data, error } = await db.rpc(
+            'get_doctor_comments',
+            { p_doctor_id: doctorId }
+        );
+
+        if (error) {
+            contenedor.replaceChildren();
+
+            const mensaje = document.createElement('p');
+            mensaje.textContent =
+                'No se pudieron cargar los comentarios. Inténtalo de nuevo.';
+            contenedor.appendChild(mensaje);
+
+            console.error('Error al cargar comentarios:', error.message);
+            return;
+        }
+
+        contenedor.replaceChildren();
+
+        if (!data || data.length === 0) {
+            const mensaje = document.createElement('p');
+            mensaje.className = 'descripcion';
+            mensaje.textContent =
+                'Todavía no hay comentarios sobre este doctor. ¡Sé el primero en compartir tu experiencia!';
+            contenedor.appendChild(mensaje);
+            return;
+        }
+
+        data.forEach(comentario => {
+            const tarjeta = document.createElement('article');
+            tarjeta.className = 'comentario-publicado';
+
+            const autor = document.createElement('strong');
+            autor.textContent = comentario.is_anonymous
+                ? 'Anónimo'
+                : (comentario.display_name || 'Paciente');
+
+            const texto = document.createElement('p');
+            texto.textContent = comentario.comment;
+
+            const fecha = document.createElement('time');
+            const momento = new Date(comentario.created_at);
+
+            fecha.dateTime = comentario.created_at;
+            fecha.textContent = Number.isNaN(momento.getTime())
+                ? ''
+                : momento.toLocaleString('es-DO', {
+                    dateStyle: 'medium',
+                    timeStyle: 'short'
+                });
+
+            tarjeta.append(autor, texto, fecha);
+            contenedor.appendChild(tarjeta);
+        });
+    }
+
+    // Publicar comentario.
+    porId('enviarComentario').addEventListener('click', async () => {
+        const boton = porId('enviarComentario');
+        const doctorId = porId('doctorComentario').value;
+        const comentario = porId('textoComentario').value.trim();
+        const anonimo = anonimoComentario.checked;
+        const nombre = nombreComentario.value.trim();
+
+        if (comentario.length < 2 || comentario.length > 1000) {
+            mostrarEstado(
+                'estadoComentario',
+                'El comentario debe tener entre 2 y 1000 caracteres.',
+                true
+            );
+            return;
+        }
+
+        if (!anonimo && (nombre.length < 2 || nombre.length > 60)) {
+            mostrarEstado(
+                'estadoComentario',
+                'Escribe tu nombre o selecciona la opción anónima.',
+                true
+            );
+            return;
+        }
+
+        boton.disabled = true;
+        mostrarEstado('estadoComentario', 'Publicando comentario...');
+
+        try {
+            await prepararSesion();
+
+            if (!anonimo) guardarNombre(nombre);
+
+            const { error } = await db.rpc('add_doctor_comment', {
+                p_doctor_id: doctorId,
+                p_comment: comentario,
+                p_display_name: anonimo ? null : nombre,
+                p_is_anonymous: anonimo
+            });
+
+            if (error) throw error;
+
+            porId('textoComentario').value = '';
+
+            mostrarEstado(
+                'estadoComentario',
+                '¡Tu comentario se publicó correctamente!'
+            );
+
+            porId('filtrarDoctor').value = doctorId;
+            await cargarComentarios();
+
+        } catch (error) {
+            console.error('Error al publicar comentario:', error);
+
+            mostrarEstado(
+                'estadoComentario',
+                'No se pudo publicar el comentario. Comprueba tu conexión e inténtalo de nuevo.',
+                true
+            );
+        } finally {
+            boton.disabled = false;
+        }
+    });
+
+    // Actualizar la lista cuando se seleccione otro doctor.
+    porId('filtrarDoctor').addEventListener('change', cargarComentarios);
+
+    // Abrir y cerrar la caja de recomendaciones.
+    porId('abrirRecomendaciones').addEventListener('click', () => {
+        const boton = porId('abrirRecomendaciones');
+        const formulario = porId('formularioRecomendaciones');
+
+        formulario.hidden = !formulario.hidden;
+        boton.setAttribute('aria-expanded', String(!formulario.hidden));
+
+        if (!formulario.hidden) {
+            formulario.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }
+    });
+
+    // Enviar recomendación a Supabase.
+    porId('enviarRecomendacion').addEventListener('click', async () => {
+        const boton = porId('enviarRecomendacion');
+        const recomendacion = porId('textoRecomendacion').value.trim();
+        const anonimo = anonimoRecomendacion.checked;
+        const nombre = nombreRecomendacion.value.trim();
+
+        if (recomendacion.length < 2 || recomendacion.length > 1500) {
+            mostrarEstado(
+                'estadoRecomendacion',
+                'La sugerencia debe tener entre 2 y 1500 caracteres.',
+                true
+            );
+            return;
+        }
+
+        if (!anonimo && (nombre.length < 2 || nombre.length > 60)) {
+            mostrarEstado(
+                'estadoRecomendacion',
+                'Escribe tu nombre o selecciona la opción anónima.',
+                true
+            );
+            return;
+        }
+
+        boton.disabled = true;
+
+        mostrarEstado(
+            'estadoRecomendacion',
+            'Enviando tu recomendación...'
+        );
+
+        try {
+            await prepararSesion();
+
+            if (!anonimo) guardarNombre(nombre);
+
+            const { error } = await db.rpc(
+                'add_clinic_recommendation',
+                {
+                    p_recommendation: recomendacion,
+                    p_display_name: anonimo ? null : nombre,
+                    p_is_anonymous: anonimo
+                }
+            );
+
+            if (error) throw error;
+
+            porId('textoRecomendacion').value = '';
+
+            mostrarEstado(
+                'estadoRecomendacion',
+                '¡Gracias! Tu recomendación se envió correctamente.'
+            );
+
+        } catch (error) {
+            console.error('Error al enviar recomendación:', error);
+
+            mostrarEstado(
+                'estadoRecomendacion',
+                'No se pudo enviar tu sugerencia. Comprueba tu conexión e inténtalo de nuevo.',
+                true
+            );
+        } finally {
+            boton.disabled = false;
+        }
+    });
+
+    // Iniciar sesión y cargar los comentarios al entrar.
+    prepararSesion()
+        .then(cargarComentarios)
+        .catch(error => {
+            console.error('Error al iniciar la sesión:', error);
+
+            mostrarEstado(
+                'estadoComentario',
+                'No se pudo iniciar la sesión. Revisa la configuración de Supabase.',
+                true
+            );
+
+            const contenedor = porId('listaComentariosPublicados');
+            contenedor.textContent =
+                'No se pudieron cargar los comentarios en este momento.';
+        });
 })();
 </script>
 </body>
