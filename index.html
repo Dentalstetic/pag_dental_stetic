@@ -435,6 +435,16 @@
 .mapa iframe{
     width: 100%;
 }
+.modal-servicio {
+    overflow: auto; 
+}
+
+.modal-contenido {
+    max-height: 80vh; /* Limita la altura máxima del contenido */
+    overflow-y: auto; /* Permite scroll vertical dentro del contenido */
+    /* Mantén los demás estilos que ya tienes */
+}
+
     </style>
 </head>
 <body>
@@ -681,11 +691,17 @@ Estamos comprometidos con ofrecerte una atención de calidad y facilitar cada pa
                     <p>Devolvemos la salud, la función y la armonía a tu sonrisa.</p>
                     <button class="abrir-detalle-btn" onclick="abrirModal('modalRehabilitacion')">Ver más</button>
                 </div>
+
+                <div class="tarjeta-imagen">
+                    <img src="imagenes/panoramica.avif" alt="Descripción de la sexta imagen" />
+                    <h3>Panorámicas dentales</h3>
+                    <p>Tu sonrisa comienza con un diagnóstico preciso.</p>
+                    <button class="abrir-detalle-btn" onclick="abrirModal('modalPanoramicas')">Ver más</button>
+                </div>
             </div>
         </section>
 
 
-    </main>
 
     <footer>
         © 2026 Dental Stetic Odontología | Odontología avanzada
@@ -766,6 +782,19 @@ Estamos comprometidos con ofrecerte una atención de calidad y facilitar cada pa
     </div>
     <p>
       Nuestro equipo multidisciplinario se encarga de diseñar planes completos de rehabilitación bucal para restaurar la salud y función de toda tu boca. Integramos tratamientos de prótesis, implantes, ajustes de mordida y cuidados periodontales para que puedas masticar, hablar y sonreír con total confianza. Nos dedicamos a mejorar tu calidad de vida mediante una atención integral y personalizada.
+    </p>
+  </div>
+</div>
+
+<div id="modalPanoramicas" class="modal-servicio" onclick="cerrarModal('modalPanoramicas')">
+  <div class="modal-contenido" onclick="event.stopPropagation()">
+    <h3>Estética</h3>
+    <button class="cerrar-btn" onclick="cerrarModal('modalPanoramicas')">Salir</button>
+    <div class="estetica_info">
+      <img src="imagenes/panoramica_info.jpg" alt="Clínica Dental Stetic" />
+    </div>
+    <p>
+      Con nuestros servicios de panorámicas dentales, obtén imágenes precisas y completas que permiten un diagnóstico más seguro, rápido y confiable para el cuidado integral de tu salud bucal. <br> <br> Confía en nuestros estudios de panorámicas dentales para visualizar cada detalle de tu sonrisa y brindar a tu especialista la información necesaria para un tratamiento eficaz
     </p>
   </div>
 </div>
