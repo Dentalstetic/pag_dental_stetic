@@ -42,20 +42,25 @@ section{padding:88px 0;scroll-margin-top:84px}
 .top nav a:hover{background:var(--suave);color:var(--bosque)}
 .top nav a.activo{background:var(--bosque);color:#fff}
 
-/* Inicio */
-.hero{padding:56px 0 64px;overflow:hidden;background:linear-gradient(180deg,#fff,var(--fondo))}
-.hero .wrap{width:min(1280px,94%)}
-.hero-txt{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:end;margin-bottom:44px}
-.hero-txt h1{margin:0}
-.hero h1{font-size:clamp(38px,5.2vw,64px);font-weight:800;color:var(--bosque);margin-bottom:20px}
-.lead{font-size:18px;color:var(--texto-secundario);max-width:46ch;margin:0 0 30px}
+/* Inicio: portada con texto encima */
+.hero{position:relative;display:flex;align-items:center;min-height:clamp(520px,82vh,760px);overflow:hidden;background:var(--bosque);color:#fff}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(8,32,15,.6) 0%,rgba(8,32,15,0) 38%),linear-gradient(90deg,rgba(65, 146, 89, 0.94) 0%,rgba(202, 240, 215, 0.76) 45%,rgba(254, 255, 254, 0.32) 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero-cont{max-width:660px;padding:96px 0 72px;animation:ent .7s ease both}
+.hero h1{font-size:clamp(40px,6vw,76px);font-weight:800;line-height:1.04;letter-spacing:-.03em;color:#fff;margin:0 0 22px}
+.lead{max-width:46ch;margin:0 0 34px;font-size:18px;color:rgba(255,255,255,.86)}
 .acciones{display:flex;gap:12px;flex-wrap:wrap}
-.datos{display:flex;gap:40px;flex-wrap:wrap;margin-top:40px;padding-top:28px;border-top:1px solid var(--borde)}
-.datos b{display:block;font-size:14px;font-weight:600;color:var(--texto-secundario)}
-.datos span{font-weight:700;font-size:15px}
-.hero figure{margin:0;position:relative}
-.hero figure::before{content:'';position:absolute;inset:16px -16px -16px 16px;border-radius:34px;background:var(--lima);opacity:.35}
-.hero figure img{position:relative;display:block;width:100%;height:auto;border-radius:30px;box-shadow:0 30px 60px -30px rgba(15,58,26,.45)}
+.hero .btn-p{padding:15px 28px;font-size:16px;background:var(--lima);color:var(--bosque)}
+.hero .btn-p:hover{background:#fff;color:var(--bosque)}
+.datos{display:flex;gap:40px;flex-wrap:wrap;margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.25)}
+.datos b{display:block;font-size:14px;font-weight:600;color:rgba(255,255,255,.65)}
+.datos span{font-size:15px;font-weight:700;color:#fff}
+@media(max-width:700px){
+.hero{min-height:560px;align-items:flex-end}
+.hero::before{background:linear-gradient(180deg,rgba(8,32,15,.5) 0%,rgba(8,32,15,.92) 70%)}
+.hero-cont{padding:56px 0 36px}
+.datos{gap:20px;margin-top:32px}}
 
 /* Servicios */
 .srv-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
@@ -189,20 +194,18 @@ section{padding:60px 0}
 <main id="inicio">
 
 <div class="hero">
+  <img src="imagenes/portada.png" alt="Clínica Dental Stetic" />
   <div class="wrap">
-    <div class="hero-txt">
+    <div class="hero-cont">
       <h1>Tu sonrisa es nuestra prioridad</h1>
-      <div>
-        <p class="lead">Centro odontológico en Moca con atención integral: implantes, ortodoncia, endodoncia, prótesis y estética dental, respaldados por tecnología avanzada.</p>
-        <div class="acciones">
-          <a class="btn btn-p" href="https://wa.me/18492141147" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-        </div>
+      <p class="lead">Centro odontológico en Moca con atención integral: implantes, ortodoncia, endodoncia, prótesis y estética dental, respaldados por tecnología avanzada.</p>
+      <div class="acciones">
+        <a class="btn btn-p" href="https://wa.me/18492141147" target="_blank" rel="noopener">Escribir por WhatsApp</a>
       </div>
-    </div>
-    <figure><img src="imagenes/portada.jpeg" alt="Clínica Dental Stetic" /></figure>
-    <div class="datos">
-      <div><b>Lunes a viernes</b><span>8:00 a. m. – 12:00 p. m. y 2:00 p. m. – 6:00 p. m.</span></div>
-      <div><b>Sedes</b><span>Juan López y San Víctor, Moca</span></div>
+      <div class="datos">
+        <div><b>Lunes a viernes</b><span>8:00 a. m. – 12:00 p. m. y 2:00 p. m. – 6:00 p. m.</span></div>
+        <div><b>Sedes</b><span>Juan López y San Víctor, Moca</span></div>
+      </div>
     </div>
   </div>
 </div>
